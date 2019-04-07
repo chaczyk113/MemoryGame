@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/FontAwesomeMemoryGame/precache-manifest.fd7aad7b2c82a76d8ee8319b511c1afe.js"
+  "/MemoryGame/precache-manifest.0aa06e3fda4990a945557bf08560c861.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/FontAwesomeMemoryGame/index.html", {
+workbox.routing.registerNavigationRoute("/MemoryGame/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });

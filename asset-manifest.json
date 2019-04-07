@@ -1,14 +1,14 @@
 {
-  "main.css": "/FontAwesomeMemoryGame/static/css/main.7513d66d.chunk.css",
-  "main.js": "/FontAwesomeMemoryGame/static/js/main.56c9acf0.chunk.js",
-  "main.js.map": "/FontAwesomeMemoryGame/static/js/main.56c9acf0.chunk.js.map",
-  "runtime~main.js": "/FontAwesomeMemoryGame/static/js/runtime~main.a74b1aeb.js",
-  "runtime~main.js.map": "/FontAwesomeMemoryGame/static/js/runtime~main.a74b1aeb.js.map",
-  "static/js/2.395498ee.chunk.js": "/FontAwesomeMemoryGame/static/js/2.395498ee.chunk.js",
-  "static/js/2.395498ee.chunk.js.map": "/FontAwesomeMemoryGame/static/js/2.395498ee.chunk.js.map",
-  "index.html": "/FontAwesomeMemoryGame/index.html",
-  "precache-manifest.fd7aad7b2c82a76d8ee8319b511c1afe.js": "/FontAwesomeMemoryGame/precache-manifest.fd7aad7b2c82a76d8ee8319b511c1afe.js",
-  "service-worker.js": "/FontAwesomeMemoryGame/service-worker.js",
-  "static/css/main.7513d66d.chunk.css.map": "/FontAwesomeMemoryGame/static/css/main.7513d66d.chunk.css.map",
-  "static/media/Header.scss": "/FontAwesomeMemoryGame/static/media/background3.ae87ad37.svg"
+  "main.css": "/MemoryGame/static/css/main.dcc2acb1.chunk.css",
+  "main.js": "/MemoryGame/static/js/main.7519811d.chunk.js",
+  "main.js.map": "/MemoryGame/static/js/main.7519811d.chunk.js.map",
+  "runtime~main.js": "/MemoryGame/static/js/runtime~main.d54f135b.js",
+  "runtime~main.js.map": "/MemoryGame/static/js/runtime~main.d54f135b.js.map",
+  "static/js/2.395498ee.chunk.js": "/MemoryGame/static/js/2.395498ee.chunk.js",
+  "static/js/2.395498ee.chunk.js.map": "/MemoryGame/static/js/2.395498ee.chunk.js.map",
+  "index.html": "/MemoryGame/index.html",
+  "precache-manifest.0aa06e3fda4990a945557bf08560c861.js": "/MemoryGame/precache-manifest.0aa06e3fda4990a945557bf08560c861.js",
+  "service-worker.js": "/MemoryGame/service-worker.js",
+  "static/css/main.dcc2acb1.chunk.css.map": "/MemoryGame/static/css/main.dcc2acb1.chunk.css.map",
+  "static/media/Header.scss": "/MemoryGame/static/media/background3.ae87ad37.svg"
 }
