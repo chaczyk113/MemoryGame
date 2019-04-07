@@ -1,9 +1,10 @@
 import React from 'react';
 import './Menu.scss'
 import ButtonGroup from './ButtonGroup';
+import LvlScore from './LvlScore';
 import ActionButton from '../commons/ActionButton';
 
-const menu = ({ lvlButtonClick }) => {
+const menu = ({ lvlButtonClick , gameScore}) => {
     return (
         <div id="Menu" className="Menu">
             <div className="wrapper">
@@ -35,7 +36,7 @@ const menu = ({ lvlButtonClick }) => {
                     </ActionButton>
                 </ButtonGroup >
                 <ButtonGroup header="Your score">
-
+                    <LvlScore gameScore={gameScore}/>
                 </ButtonGroup>
             </div>
         </div>

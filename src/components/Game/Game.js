@@ -7,18 +7,15 @@ class Game extends Component {
     state={};
     static getDerivedStateFromProps(props, state) {
         if (props.newGame) {
-            const gameHeight = window.innerHeight - 150 - 40 - 32;
-            const  gameWidth = gameHeight * 1.66;
-            console.log(gameHeight, gameWidth);
             return {
                 gridStyle: {
-                    height: gameHeight + 'px',
-                    width: gameWidth + 'px',
+                    height: '100%',
+                    width: '100%',
                     display: 'grid',
                     gridTemplateColumns: 'auto '.repeat(props.lvlSize.x),
                     gridGap: '10px'
                 },
-                cardSize: (gameWidth - 10 * (props.lvlSize.x - 1)) / props.lvlSize.x,
+                cardSize: (props.gameWidth - 10 * (props.lvlSize.x - 1)) / props.lvlSize.x,
                 cardColor: config.cardColors[Math.floor(Math.random() * config.cardColors.length)]
             }
         }

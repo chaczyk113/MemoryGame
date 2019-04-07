@@ -3,15 +3,6 @@ import './Game.scss';
 import WinPopup from "./WinPopup";
 
 const gamePlaceholder = (props) => {
-    const gameHeight = window.innerHeight - 150 - 32;
-    const gameWidth = gameHeight * 1.66;
-
-    const placeholderStyle = {
-        height: gameHeight + 'px',
-        width: gameWidth + 'px',
-    }
-
-    console.log(placeholderStyle);
     let placeholderContent;
     if (props.isWin) {
         placeholderContent = <WinPopup clickCounter={props.clickCounter} replayClick={props.replayClick} cancelClick={props.cancelClick} />
@@ -28,7 +19,7 @@ const gamePlaceholder = (props) => {
     }
 
     return (
-        <div id="Game" className="GamePlaceholder" style={placeholderStyle} >
+        <div id="Game" className="GamePlaceholder" >
             {placeholderContent}
         </div>
     )

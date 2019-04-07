@@ -18,7 +18,10 @@ class App extends Component {
     reversedCards: [],
     matchedCouples: 0,
     isWin: false,
-    clickCounter: 0
+    clickCounter: 0,
+    gameAreaWidth: 0,
+    gameAreaStyle: {},
+    gameScore: [{last: 0, top:0},{last: 0, top:0},{last: 0, top:0},{last: 0, top:0}]
   }
 
   randomIcons = (lvlRangeSize) => {
@@ -55,6 +58,18 @@ class App extends Component {
     return newCardsObj;
   }
 
+  winGameHandler = (clickCounter) => {
+    let gameScore = [...this.state.gameScore];
+    gameScore[this.state.lvl].last = clickCounter;
+    if (gameScore[this.state.lvl].top > 0 && clickCounter < gameScore[this.state.lvl].top) {
+      gameScore[this.state.lvl].top = clickCounter;
+    }
+    else if (gameScore[this.state.lvl].top === 0) {
+      gameScore[this.state.lvl].top = clickCounter;
+    }
+    this.setState({gameScore:gameScore})
+  }
+
   cardClickHandler = (index) => {
 
     if (this.state.cardsObj[index].isReversed) {
@@ -63,6 +78,7 @@ class App extends Component {
       let matchedCouples = this.state.matchedCouples;
       let isWin = this.state.isWin;
       let clickCounter = this.state.clickCounter;
+
       modifiedCardObj[index].isReversed = false;
       clickCounter++;
 
@@ -76,19 +92,16 @@ class App extends Component {
           modifiedCardObj[reversedCards[0]].isMatched = true;
           reversedCards = [];
           matchedCouples++;
-          console.log("matched: " + matchedCouples);
+          // Checks if we won the game!
           if (matchedCouples === config.lvlRange[this.state.lvl].size / 2) {
-            console.log("winner!!");
             isWin = true;
+            this.winGameHandler(clickCounter);
             matchedCouples = 0;
           }
         }
         else {
           console.log("fail")
           setTimeout(() => {
-            // let reversedCard = this.state.reversedCard;
-            // let modifiedCardObj = [...this.state.cardsObj];
-
             modifiedCardObj[reversedCards[0]].isReversed = true;
             modifiedCardObj[reversedCards[1]].isReversed = true;
             reversedCards = [];
@@ -105,13 +118,13 @@ class App extends Component {
   }
 
   cancelClickHandler = () => {
-    this.setState({gameStarted: false, isWin: false});
+    this.setState({ gameStarted: false, isWin: false });
   }
 
   startNewGame = (lvl) => {
     let lvlRangeSize = config.lvlRange[lvl].size;
     const newCardsObj = this.randomIcons(lvlRangeSize);
-    this.setState({ gameStarted: true, cardsObj: newCardsObj, lvl: lvl, isNewGame: true, isWin: false, clickCounter:0 });
+    this.setState({ gameStarted: true, cardsObj: newCardsObj, lvl: lvl, isNewGame: true, isWin: false, clickCounter: 0 });
     setTimeout(() => {
       let modifiedCardObj = [...this.state.cardsObj];
       for (const cardObj of modifiedCardObj) {
@@ -127,36 +140,36 @@ class App extends Component {
     }
   }
 
-  gameFieldSize = {
-    width: 1000,
-    height: 600
-  }
-
-  componentDidMount(){
-
+  componentDidMount() {
+    const height = window.innerHeight - 150 - 32;
+    const width = height * 1.66;
+    this.setState({
+      gameAreaWidth: width,
+      gameAreaStyle: {
+      height: height + 'px',
+      width: width + 'px',
+    }});
   }
 
   render() {
-    let gameArea = null;
+    let gameContent = null;
     let gameInfo = null;
     if (this.state.gameStarted) {
-      gameArea =
-        <Game lvlSize={config.lvlRange[this.state.lvl]} lvl={this.state.lvl} cardsObj={this.state.cardsObj} cardClick={(key, e) => this.cardClickHandler(key, e)} newGame={this.state.isNewGame}/>
+      gameContent =
+        <Game lvlSize={config.lvlRange[this.state.lvl]} lvl={this.state.lvl} cardsObj={this.state.cardsObj} cardClick={(key, e) => this.cardClickHandler(key, e)} newGame={this.state.isNewGame} gameWidth = {this.state.gameAreaWidth}/>
     }
     if (!this.state.gameStarted || this.state.isWin) {
-      gameInfo = <GamePlaceholder isWin={this.state.isWin} clickCounter={this.state.clickCounter} replayClick = {this.replyClickHandler} cancelClick = {this.cancelClickHandler}/>;
+      gameInfo = <GamePlaceholder isWin={this.state.isWin} clickCounter={this.state.clickCounter} replayClick={this.replyClickHandler} cancelClick={this.cancelClickHandler} />;
     }
 
     return (
       <div className="App">
         <Header />
-        <Menu lvlButtonClick={(lvl, e) => this.lvlButtonClickHanlder(lvl, e)} />
-        <div className = "gameArea">
-          {gameArea}
+        <Menu lvlButtonClick={(lvl, e) => this.lvlButtonClickHanlder(lvl, e)} gameScore = {this.state.gameScore[this.state.lvl]}/>
+        <div className="gameArea" style={this.state.gameAreaStyle}>
+          {gameContent}
           {gameInfo}
         </div>
-
-
         <Footer />
       </div>
     );

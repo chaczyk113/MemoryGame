@@ -8,3 +8,11 @@ a:link, a:visited {
     color: #FFF;
     text-decoration: none;
 }
+
+.gameArea {
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
