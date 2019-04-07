@@ -9,18 +9,24 @@ const winPopup = (props) => {
             <p>Winner!</p>
             <p>{`You did it in: ${props.clickCounter} clicks!`}</p>
             <div className="winButtons">
-            <ActionButton
-                description="Reply"
-                click={props.replayClick}
-                level="0">
-                <i className="fas fa-undo-alt"></i>
-            </ActionButton>
-            <ActionButton
-                description="Cancel"
-                click={props.cancelClick}
-                level="0">
-                <i className="fas fa-times"></i>
-            </ActionButton>
+                <ActionButton
+                    description="Reply"
+                    click={props.replayClick}
+                    level="0">
+                    <i className="fas fa-undo-alt"></i>
+                </ActionButton>
+                <ActionButton
+                    description="Next level"
+                    click={props.nextLvlClick}
+                    level={props.lvl + 1}>
+                    <i className="fas fa-arrow-right"></i>
+                </ActionButton>
+                <ActionButton
+                    description="Cancel"
+                    click={props.cancelClick}
+                    level="0">
+                    <i className="fas fa-times"></i>
+                </ActionButton>
             </div>
         </div>
     )

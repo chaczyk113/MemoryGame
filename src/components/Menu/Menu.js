@@ -4,39 +4,29 @@ import ButtonGroup from './ButtonGroup';
 import LvlScore from './LvlScore';
 import ActionButton from '../commons/ActionButton';
 
-const menu = ({ lvlButtonClick , gameScore}) => {
+const menu = ({ lvlButtonClick, gameScore, gameProgress }) => {
+
+    const buttonsData = [{ des: "Easy", lvl:0, text:"1" }, { des: "Medium", lvl:1, text:"2" }, { des: "Hard", lvl:2, text:"3" }, { des: "Nightmare", lvl:3, text:<i className="far fa-dizzy"></i> }];
+    const buttonsArray = buttonsData.map((button, index) => {
+        return (
+            <ActionButton
+                key = {index}
+                description={button.des}
+                click={lvlButtonClick}
+                level={button.lvl}
+                locked = {button.lvl <= gameProgress?false:true}>
+                {button.text}
+             </ActionButton>
+        )
+    })
     return (
         <div id="Menu" className="Menu">
             <div className="wrapper">
                 <ButtonGroup header="Choose level">
-                    <ActionButton
-                        description="Easy"
-                        click={lvlButtonClick}
-                        level="0">
-                        1
-                    </ActionButton>
-                    <ActionButton
-                        description="Medium"
-                        click={lvlButtonClick}
-                        level="1">
-                        2
-                    </ActionButton>
-                    <ActionButton
-                        description="Hard"
-                        click={lvlButtonClick}
-                        level="2">
-                        3
-                    </ActionButton>
-                    <ActionButton
-                        locked="true"
-                        description="Nightmare"
-                        click={lvlButtonClick}
-                        level="3">
-                        <i class="far fa-dizzy"></i>
-                    </ActionButton>
+                    {buttonsArray}
                 </ButtonGroup >
                 <ButtonGroup header="Your score">
-                    <LvlScore gameScore={gameScore}/>
+                    <LvlScore gameScore={gameScore} />
                 </ButtonGroup>
             </div>
         </div>
