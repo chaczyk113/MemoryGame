@@ -1,0 +1,57 @@
+{
+    "gameFieldSize": 1000,
+    "lvlRange": [
+        {
+            "size": 8,
+            "x": 4,
+            "y": 2
+        },
+        {
+            "size": 18,
+            "x": 6,
+            "y": 3
+        },
+        {
+            "size": 32,
+            "x": 8,
+            "y": 4
+        },
+        {
+            "size": 32,
+            "x": 8,
+            "y": 4
+        }
+    ],
+    "reverseTime": [300, 600, 900, 1800],
+    "cardColors": ["#f03e3e", "#12b886", "#228be6", "#495057"],
+    "reverseIcon":"flag",
+    "icons": [
+        "truck-monster",
+        "space-shuttle",
+        "dove",
+        "user-astronaut",
+        "quidditch",
+        "coffee",
+        "beer",
+        "skull",
+        "bomb",
+        "bell",
+        "bullhorn",
+        "comments",
+        "copy",
+        "cut",
+        "dice-five",
+        "eye",
+        "gamepad",
+        "globe-americas",
+        "grin-tears",
+        "grin-beam",
+        "hourglass-half",
+        "map-marked-alt",
+        "pizza-slice",
+        "robot",
+        "shopping-basket",
+        "thumbs-up",
+        "users"
+    ]
+}

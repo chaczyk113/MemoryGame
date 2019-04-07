@@ -1,0 +1,13 @@
+.Menu {
+    // height: 150px;
+    // background-color: #105391;
+    background-color: #105391;
+    overflow: hidden;
+    .wrapper {
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+}
