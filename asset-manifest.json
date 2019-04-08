@@ -1,13 +1,13 @@
 {
   "main.css": "/MemoryGame/static/css/main.7417cebc.chunk.css",
-  "main.js": "/MemoryGame/static/js/main.28479218.chunk.js",
-  "main.js.map": "/MemoryGame/static/js/main.28479218.chunk.js.map",
+  "main.js": "/MemoryGame/static/js/main.cedb7089.chunk.js",
+  "main.js.map": "/MemoryGame/static/js/main.cedb7089.chunk.js.map",
   "runtime~main.js": "/MemoryGame/static/js/runtime~main.d54f135b.js",
   "runtime~main.js.map": "/MemoryGame/static/js/runtime~main.d54f135b.js.map",
   "static/js/2.395498ee.chunk.js": "/MemoryGame/static/js/2.395498ee.chunk.js",
   "static/js/2.395498ee.chunk.js.map": "/MemoryGame/static/js/2.395498ee.chunk.js.map",
   "index.html": "/MemoryGame/index.html",
-  "precache-manifest.70a55048cca1202d089f50d28145c1cc.js": "/MemoryGame/precache-manifest.70a55048cca1202d089f50d28145c1cc.js",
+  "precache-manifest.3b76a8ab107e3903dafbf8de675a0ab2.js": "/MemoryGame/precache-manifest.3b76a8ab107e3903dafbf8de675a0ab2.js",
   "service-worker.js": "/MemoryGame/service-worker.js",
   "static/css/main.7417cebc.chunk.css.map": "/MemoryGame/static/css/main.7417cebc.chunk.css.map",
   "static/media/Header.scss": "/MemoryGame/static/media/background3.ae87ad37.svg"
