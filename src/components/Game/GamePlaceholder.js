@@ -5,7 +5,7 @@ import WinPopup from "./WinPopup";
 const gamePlaceholder = (props) => {
     let placeholderContent;
     if (props.isWin) {
-        placeholderContent = <WinPopup clickCounter={props.clickCounter} replayClick={props.replayClick} cancelClick={props.cancelClick} lvl={props.lvl} nextLvlClick = {props.nextLvlClick}/>
+        placeholderContent = <WinPopup clickCounter={props.clickCounter} replayClick={props.replayClick} cancelClick={props.cancelClick} lvl={props.lvl} isNewRecord={props.isNewRecord} nextLvlClick = {props.nextLvlClick}/>
     }
     else {
         placeholderContent = (

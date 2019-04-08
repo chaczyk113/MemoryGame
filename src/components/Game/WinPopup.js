@@ -6,8 +6,12 @@ const winPopup = (props) => {
 
     return (
         <div className="WinPopup">
-            <p>Winner!</p>
-            <p>{`You did it in: ${props.clickCounter} clicks!`}</p>
+            <div>
+                <p>Winner!</p>
+                <p>{`Score: ${props.clickCounter} clicks`}</p>
+                {props.isNewRecord ? <p><strong>New Record!</strong></p> : null
+                }
+            </div>
             <div className="winButtons">
                 <ActionButton
                     description="Reply"
@@ -15,12 +19,15 @@ const winPopup = (props) => {
                     level="0">
                     <i className="fas fa-undo-alt"></i>
                 </ActionButton>
-                <ActionButton
-                    description="Next level"
-                    click={props.nextLvlClick}
-                    level={props.lvl + 1}>
-                    <i className="fas fa-arrow-right"></i>
-                </ActionButton>
+                {/* don't show next level button when it's last level */}
+                {props.lvl < 3 ? (
+                    <ActionButton
+                        description="Next level"
+                        click={props.nextLvlClick}
+                        level={props.lvl + 1}>
+                        <i className="fas fa-arrow-right"></i>
+                    </ActionButton>
+                ) : null}
                 <ActionButton
                     description="Cancel"
                     click={props.cancelClick}

@@ -66,9 +66,6 @@
         background-color: #1b4f7a;
         height: 84px;
         cursor: default;
-        &:hover {
-            // filter: brightness(100%);
-        }
         i {
             position: absolute;
             top: 50%;
@@ -79,4 +76,10 @@
             // transform: translateX(-50%);
         }
     }
+}
+
+.buttonPressed {
+    border-bottom: none;
+    border-top: 4px solid darken(#339af0, 30%);
+    background-color: darken(#339af0, 20%);
 }
