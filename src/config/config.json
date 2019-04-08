@@ -22,7 +22,7 @@
             "y": 3
           }
     ],
-    "reverseTime": [400, 700, 1000, 3600],
+    "reverseTime": [400, 700, 1200, 3200],
     "cardColors": ["#f03e3e", "#12b886", "#228be6", "#495057"],
     "reverseIcon":"flag",
     "icons": [

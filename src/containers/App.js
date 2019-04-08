@@ -130,6 +130,7 @@ class App extends Component {
               modifiedCardObj[reversedCards[1]].isReversed = true;
               reversedCards = [];
               this.setState({ cardsObj: modifiedCardObj, reversedCards: reversedCards })
+              this.buttonLocker = false;
             }, 600);
           }
           else {
@@ -149,7 +150,7 @@ class App extends Component {
             }, 600);
           }, 600);
         }
-        else {
+        else if (reversedCards.length < 2){
           this.buttonLocker = false;
         }
       })
