@@ -1,13 +1,23 @@
 .Menu {
-    // height: 150px;
-    // background-color: #105391;
-    background-color: #105391;
-    overflow: hidden;
+  // height: 150px;
+  // background-color: #105391;
+  background-color: #105391;
+  overflow: hidden;
+  .wrapper {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .Menu {
     .wrapper {
-        width: 1200px;
-        height: 100%;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
+      width: 100%;
+      justify-content: center;
     }
+  }
 }

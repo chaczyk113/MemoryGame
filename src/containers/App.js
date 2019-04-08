@@ -47,7 +47,6 @@ class App extends Component {
       newCardsObj[index] = {
         icon: icon,
         isReversed: false,
-        isMatched: false
       };
 
       index = cardsIds.splice(Math.floor(Math.random() * cardsIds.length), 1);
@@ -55,25 +54,29 @@ class App extends Component {
       newCardsObj[index] = {
         icon: icon,
         isReversed: false,
-        isMatched: false
       };
 
     }
     return newCardsObj;
   }
 
-  winGameHandler = (clickCounter) => {
+  endGameHandler = (score) => {
+    console.log("engGame")
     let gameScore = [...this.state.gameScore];
     let gameProgress = this.state.gameProgress;
     let isNewRecord = false;
-    gameScore[this.state.lvl].last = clickCounter;
+    gameScore[this.state.lvl].last = score
     // new Record
-    if (gameScore[this.state.lvl].top > 0 && clickCounter < gameScore[this.state.lvl].top) {
-      gameScore[this.state.lvl].top = clickCounter;
+    if (this.state.lvl < 3 && gameScore[this.state.lvl].top > 0 && score < gameScore[this.state.lvl].top) {
+      gameScore[this.state.lvl].top = score;
       isNewRecord = true;
     }
     else if (gameScore[this.state.lvl].top === 0) {
-      gameScore[this.state.lvl].top = clickCounter;
+      gameScore[this.state.lvl].top = score;
+      isNewRecord = true;
+    }
+    else if (this.state.lvl === 3 && gameScore[this.state.lvl].top > 0 && score > gameScore[this.state.lvl].top) {
+      gameScore[this.state.lvl].top = score;
       isNewRecord = true;
     }
     // progress made
@@ -109,22 +112,19 @@ class App extends Component {
         reversedCards[1] = index;
         // checks if there is a match
         if (modifiedCardObj[index].icon === modifiedCardObj[reversedCards[0]].icon) {
-          modifiedCardObj[index].isMatched = true;
-          modifiedCardObj[reversedCards[0]].isMatched = true;
           reversedCards = [];
           matchedCouples++;
           // Checks if we won the game!
           if (matchedCouples === config.lvlRange[this.state.lvl].size / 2) {
             isWin = true;
-            this.winGameHandler(clickCounter);
-            matchedCouples = 0;
+            this.endGameHandler(clickCounter);
           }
         }
         // in case of fail
         else {
           // if not nightmare
-          console.log('fail ' + this.state.lvl);
           if (this.state.lvl !== 3) {
+
             setTimeout(() => {
               modifiedCardObj[reversedCards[0]].isReversed = true;
               modifiedCardObj[reversedCards[1]].isReversed = true;
@@ -134,6 +134,7 @@ class App extends Component {
             }, 600);
           }
           else {
+            this.endGameHandler(matchedCouples);
             isFailure = true;
           }
         }
@@ -150,7 +151,7 @@ class App extends Component {
             }, 600);
           }, 600);
         }
-        else if (reversedCards.length < 2){
+        else if (reversedCards.length < 2) {
           this.buttonLocker = false;
         }
       })
@@ -168,7 +169,6 @@ class App extends Component {
   startNewGame = (lvl) => {
     let lvlRangeSize = config.lvlRange[lvl].size;
     const newCardsObj = this.randomIcons(lvlRangeSize);
-    console.log(newCardsObj);
     this.setState({
       gameStarted: true,
       cardsObj: newCardsObj,
@@ -179,8 +179,6 @@ class App extends Component {
       matchedCouples: 0,
       reversedCards: []
     }, () => {
-      console.log("State setted");
-      console.log(this.state);
       setTimeout(() => {
         this.reverseAllCards();
       }, config.reverseTime[lvl])
@@ -208,7 +206,7 @@ class App extends Component {
       gameAreaWidth: width,
       gameAreaStyle: {
         height: height + 'px',
-        width: width + 'px',
+        // width: width + 'px',
       }
     });
     const savedProgress = localStorage.getItem('gameProgress');

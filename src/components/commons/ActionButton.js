@@ -24,7 +24,6 @@ const actionButton = (props) => {
     let pressedClass = '';
     if (props.gameStarted && props.gameLvl === props.level) {
         pressedClass = "buttonPressed";
-        console.log("pressed")
     }
 
     return (

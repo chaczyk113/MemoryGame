@@ -5,8 +5,8 @@ const lvlScroe = ({ gameScore }) => {
 
     return (
         <div className="LvlScore">
-            <p>Last: <b>{gameScore.last}</b></p>
-            <p>Top: <b>{gameScore.top}</b></p>
+            <p>Last: </p><p><b>{gameScore.last}</b></p>
+            <p>Top: </p><p><b>{gameScore.top}</b></p>
         </div>
     )
 }
