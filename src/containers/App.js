@@ -28,6 +28,10 @@ class App extends Component {
 
   buttonLocker = false;
 
+  cardColor = config.cardColors[0];
+  cardSize = 200; //random value
+
+
   randomIcons = (lvlRangeSize) => {
     let newCardsObj = []; //Object with whole lvl cards data
     let cardsIds = []; //Array of indexes for cards in game
@@ -169,6 +173,8 @@ class App extends Component {
   startNewGame = (lvl) => {
     let lvlRangeSize = config.lvlRange[lvl].size;
     const newCardsObj = this.randomIcons(lvlRangeSize);
+    this.cardColor = config.cardColors[Math.floor(Math.random() * config.cardColors.length)];
+    this.cardSize = (this.state.gameAreaWidth - 10 * (parseInt(config.lvlRange[lvl].x) - 1)) / parseInt(config.lvlRange[lvl].x);
     this.setState({
       gameStarted: true,
       cardsObj: newCardsObj,
@@ -204,8 +210,8 @@ class App extends Component {
     let width = height * 1.66;
 
     if (window.innerWidth < 768) {
-      width = window.innerWidth*0.96;
-      height = width/1.66;
+      width = window.innerWidth * 0.96;
+      height = width / 1.66;
     }
 
     this.setState({
@@ -231,8 +237,9 @@ class App extends Component {
 
     if (this.state.gameStarted) {
       gameContent =
-        <Game lvlSize={config.lvlRange[this.state.lvl]} lvl={this.state.lvl} cardsObj={this.state.cardsObj} cardClick={(key, e) => this.cardClickHandler(key, e)} newGame={this.state.isNewGame} gameWidth={this.state.gameAreaWidth} />
+        <Game lvl={this.state.lvl} lvlSize={config.lvlRange[this.state.lvl]} cardsObj={this.state.cardsObj} cardSize={this.cardSize} cardColor={this.cardColor} cardClick={(key, e) => this.cardClickHandler(key, e)} />
     }
+
     if (!this.state.gameStarted || this.state.isWin) {
       gameInfo = <GamePlaceholder isWin={this.state.isWin} isNewRecord={this.state.isNewRecord} clickCounter={this.state.clickCounter} replayClick={this.replyClickHandler} cancelClick={this.cancelClickHandler} lvl={this.state.lvl} nextLvlClick={(lvl, e) => this.lvlButtonClickHanlder(lvl, e)} />;
     }

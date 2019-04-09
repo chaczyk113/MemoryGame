@@ -2,7 +2,7 @@ import React from 'react';
 import './Card.scss'
 import config from '../../config/config.json'
 
-const card = ({ size, isReversed, cardIcon, cardColor, id, cardClick}) => {
+const card = ({ size, isReversed, cardIcon, cardColor, id, cardClick }) => {
 
     const containerStyle = {
         width: size,
@@ -22,7 +22,7 @@ const card = ({ size, isReversed, cardIcon, cardColor, id, cardClick}) => {
     }
 
     return (
-        <div className="cardContainer" style={containerStyle} onClick={(e)=>cardClick(id, e)}>
+        <div className="cardContainer" style={containerStyle} onClick={(e) => cardClick(id, e)}>
             <div className={cardClasses}>
                 <div className="front" style={cardStyle}><i className={"fas fa-" + cardIcon} style={iconStyle}></i></div>
                 <div className="back" style={cardStyle}><i className={"fas fa-" + config.reverseIcon} style={iconStyle}></i></div>
