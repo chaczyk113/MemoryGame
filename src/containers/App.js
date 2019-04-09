@@ -200,8 +200,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const height = window.innerHeight - 150 - 32;
-    const width = height * 1.66;
+    let height = window.innerHeight - 150 - 32;
+    let width = height * 1.66;
+
+    if (window.innerWidth < 768) {
+      width = window.innerWidth*0.96;
+      height = width/1.66;
+    }
+
     this.setState({
       gameAreaWidth: width,
       gameAreaStyle: {
@@ -235,7 +241,7 @@ class App extends Component {
       <div className="App">
         <Header />
         <Menu gameLvl={this.state.lvl} gameStarted={this.state.gameStarted} gameProgress={this.state.gameProgress} lvlButtonClick={(lvl, e) => this.lvlButtonClickHanlder(lvl, e)} gameScore={this.state.gameScore[this.state.lvl]} />
-        <div className="gameArea" style={this.state.gameAreaStyle}>
+        <div id="Game" className="gameArea" style={this.state.gameAreaStyle}>
           {gameContent}
           {gameInfo}
         </div>

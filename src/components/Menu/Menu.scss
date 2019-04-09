@@ -18,6 +18,11 @@
     .wrapper {
       width: 100%;
       justify-content: center;
+      // align-items: center;
+      // flex-direction: column-reverse;
+    }
+    .scoreList {
+      order: -1;
     }
   }
 }

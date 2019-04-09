@@ -32,7 +32,7 @@ const menu = ({ lvlButtonClick, gameScore, gameProgress, gameLvl, gameStarted })
                 <ButtonGroup header="Choose level">
                     {buttonsArray}
                 </ButtonGroup >
-                <ButtonGroup header={headerText}>
+                <ButtonGroup header={headerText} scoreList={true}>
                     <LvlScore gameLvl={gameLvl} gameScore={gameScore} />
                 </ButtonGroup>
             </div>

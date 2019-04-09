@@ -28,7 +28,7 @@ const actionButton = (props) => {
 
     return (
         <button className={"ActionButton " + pressedClass} disabled={props.locked} onClick={(e) => { props.click(props.level, e)}} title={props.title}>
-            {outputText()}
+            <a href={"#Game"}>{outputText()}</a>
         </button>
     )
 }
