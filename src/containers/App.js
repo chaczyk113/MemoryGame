@@ -87,7 +87,7 @@ class App extends Component {
       isNewRecord = true;
     }
     // progress made
-    if (gameProgress < 4 && this.state.lvl === gameProgress) {
+    if (gameProgress < 3 && this.state.lvl === gameProgress) {
       gameProgress++;
     }
     // save progress

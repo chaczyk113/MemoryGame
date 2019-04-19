@@ -3,6 +3,7 @@ import './Menu.scss'
 import ButtonGroup from './ButtonGroup/ButtonGroup';
 import LvlScore from './LvlScore/LvlScore';
 import ActionButton from '../Buttons/ActionBtn';
+import ArrowBtn from '../Buttons/ArrowBtn'
 
 const menu = ({ lvlButtonClick, gameScore, gameProgress, gameLvl, gameStarted }) => {
 
@@ -30,7 +31,9 @@ const menu = ({ lvlButtonClick, gameScore, gameProgress, gameLvl, gameStarted })
         <div id="Menu" className="Menu">
             <div className="wrapper">
                 <ButtonGroup header="Choose level">
+                    <ArrowBtn direction="left" />
                     {buttonsArray}
+                    <ArrowBtn direction="right" />
                 </ButtonGroup >
                 <ButtonGroup header={headerText} scoreList={true}>
                     <LvlScore gameLvl={gameLvl} gameScore={gameScore} />
