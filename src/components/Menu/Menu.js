@@ -1,8 +1,8 @@
 import React from 'react';
 import './Menu.scss'
-import ButtonGroup from './ButtonGroup';
-import LvlScore from './LvlScore';
-import ActionButton from '../commons/ActionButton';
+import ButtonGroup from './ButtonGroup/ButtonGroup';
+import LvlScore from './LvlScore/LvlScore';
+import ActionButton from '../Buttons/ActionBtn';
 
 const menu = ({ lvlButtonClick, gameScore, gameProgress, gameLvl, gameStarted }) => {
 

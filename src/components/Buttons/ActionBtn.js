@@ -1,7 +1,7 @@
 import React from 'react';
 import './Buttons.scss'
 
-const actionButton = (props) => {
+const actionBtn = (props) => {
 
     let outputText = () => {
         if (!props.locked) {
@@ -33,4 +33,4 @@ const actionButton = (props) => {
     )
 }
 
-export default actionButton;
+export default actionBtn;

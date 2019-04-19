@@ -1,6 +1,6 @@
 import React from 'react';
 import './Card.scss'
-import config from '../../config/config.json'
+import config from '../../../config/config.json'
 
 const card = ({ size, isReversed, cardIcon, cardColor, id, cardClick }) => {
 

@@ -1,12 +1,10 @@
-import React from 'react';
-import './Game.scss'
-import ActionButton from '../commons/ActionButton';
+import React from 'react'
+import ActionButton from '../../Buttons/ActionBtn';
 
-const winPopup = (props) => {
-
+const WinPopup = (props) => {
     return (
-        <div className="WinPopup">
-            <div>
+        <>
+            <div className="WinPopup">
                 <p>Winner!</p>
                 <p>{`Score: ${props.clickCounter} clicks`}</p>
                 {props.isNewRecord ? <p><strong>New Record!</strong></p> : null
@@ -35,8 +33,8 @@ const winPopup = (props) => {
                     <i className="fas fa-times"></i>
                 </ActionButton>
             </div>
-        </div>
+        </>
     )
 }
 
-export default winPopup
+export default WinPopup

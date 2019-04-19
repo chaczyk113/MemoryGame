@@ -1,6 +1,6 @@
 import React from 'react';
 import './Game.scss'
-import Card from "./Card";
+import Card from "./Card/Card";
 
 
 const game = (props) => {

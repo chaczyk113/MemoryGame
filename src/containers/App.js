@@ -3,8 +3,11 @@ import './App.scss';
 import Header from '../components/Header/Header';
 import Menu from '../components/Menu/Menu';
 import Game from '../components/Game/Game';
-import GamePlaceholder from '../components/Game/GamePlaceholder';
+import GamePlaceholder from '../components/Game/Placeholder/Placeholder';
+import Popup from "../components/Game/Popup/Popup";
+import WinPopup from "../components/Game/WinPopup/WinPopup";
 import Footer from '../components/Footer/Footer';
+
 import config from '../config/config.json'
 
 
@@ -240,8 +243,14 @@ class App extends Component {
         <Game lvl={this.state.lvl} lvlSize={config.lvlRange[this.state.lvl]} cardsObj={this.state.cardsObj} cardSize={this.cardSize} cardColor={this.cardColor} cardClick={(key, e) => this.cardClickHandler(key, e)} />
     }
 
-    if (!this.state.gameStarted || this.state.isWin) {
-      gameInfo = <GamePlaceholder isWin={this.state.isWin} isNewRecord={this.state.isNewRecord} clickCounter={this.state.clickCounter} replayClick={this.replyClickHandler} cancelClick={this.cancelClickHandler} lvl={this.state.lvl} nextLvlClick={(lvl, e) => this.lvlButtonClickHanlder(lvl, e)} />;
+    if (this.state.isWin) {
+      gameInfo = <Popup>
+        <WinPopup isNewRecord={this.state.isNewRecord} clickCounter={this.state.clickCounter} replayClick={this.replyClickHandler} cancelClick={this.cancelClickHandler} lvl={this.state.lvl} nextLvlClick={(lvl, e) => this.lvlButtonClickHanlder(lvl, e)} />
+      </Popup>
+    }
+
+    if (!this.state.gameStarted) {
+      gameInfo = <GamePlaceholder />;
     }
 
     return (
