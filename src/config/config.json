@@ -3,26 +3,32 @@
     "lvlRange": [
         {
             "size": 8,
-            "x": 4,
-            "y": 2
+            "cols": 4
           },
           {
             "size": 18,
-            "x": 6,
-            "y": 3
+            "cols": 6
           },
           {
             "size": 32,
-            "x": 8,
-            "y": 4
+            "cols": 8
+          },
+          {
+            "size": 8,
+            "cols": 4
           },
           {
             "size": 18,
-            "x": 6,
-            "y": 3
+            "cols": 6
+          },
+          {
+            "size": 32,
+            "cols": 8
           }
     ],
-    "reverseTime": [400, 700, 1200, 3200],
+    "lvlGroups": 2,
+    "reverseTime": [500, 800, 1200, 2300, 3400, 4000],
+    "lvlChances": [-1, -1, -1, 1, 2, 3],
     "cardColors": ["#f03e3e", "#12b886", "#228be6", "#495057"],
     "reverseIcon":"flag",
     "icons": [

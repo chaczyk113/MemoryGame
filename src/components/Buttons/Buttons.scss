@@ -56,6 +56,8 @@
             display: inline-block;
             padding: 15px 0;
             height: 84px;
+            // height: 84px;
+            // width: 84px;
             width: 84px;
             text-align: center;
         }
@@ -89,10 +91,16 @@
     width: 42px;
     font-size: 30px;
     padding: 5px;
+    &:disabled {
+        background-color: darken(#339af0, 20%);
+        cursor: default;
+        border-bottom: none;
+        border-top: 4px solid darken(#339af0, 30%);
+    }
 }
 
 @media only screen and (max-width: 768px) {
-    .ActionButton {
+    .ActionButton, .ArrowBtn {
         transform: scale(0.8)
     }
 }

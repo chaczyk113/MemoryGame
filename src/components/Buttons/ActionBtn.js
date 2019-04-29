@@ -22,7 +22,7 @@ const actionBtn = (props) => {
     };
 
     let pressedClass = '';
-    if (props.gameStarted && props.gameLvl === props.level) {
+    if (props.isGameVisible && props.gameLvl === props.level) {
         pressedClass = "buttonPressed";
     }
 

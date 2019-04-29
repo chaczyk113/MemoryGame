@@ -18,7 +18,7 @@ const WinPopup = (props) => {
                     <i className="fas fa-undo-alt"></i>
                 </ActionButton>
                 {/* don't show next level button when it's last level */}
-                {props.lvl < 3 ? (
+                {props.lvl < 5 ? (
                     <ActionButton
                         description="Next level"
                         click={props.nextLvlClick}
