@@ -9,6 +9,7 @@ import WinPopup from "../../components/Game/WinPopup/WinPopup";
 import StartPopup from "../../components/Game/StartPopup/StartPopup";
 import Footer from '../../components/Footer/Footer';
 
+import config from '../../config/config.json';
 
 class App extends Component {
   VERSION = '1.1';
@@ -18,9 +19,9 @@ class App extends Component {
     lvlGroup: 0,
     isNewRecord: false,
     isWin: false,
-    gameScore: [{ last: 0, top: 0 , played: 0}, { last: 0, top: 0 , played: 0},{ last: 0, top: 0 , played: 0},{ last: 0, top: 0 , played: 0},{ last: 0, top: 0 , played: 0},{ last: 0, top: 0 , played: 0},],
+    gameScore: [{ last: 0, top: 0, played: 0 }, { last: 0, top: 0, played: 0 }, { last: 0, top: 0, played: 0 }, { last: 0, top: 0, played: 0 }, { last: 0, top: 0, played: 0 }, { last: 0, top: 0, played: 0 },],
     gameProgress: 0,
-    gameAreaSize: {width:0, height:0},
+    gameAreaSize: { width: 0, height: 0 },
     gameAreaStyle: {}
   }
 
@@ -58,11 +59,11 @@ class App extends Component {
     if (this.state.lvl < 3) {
       isWin = true;
     }
-    else if (score === 4) {
+    else if (score === config.lvlRange[this.state.lvl].size/2) {
       isWin = true;
     }
     // progress made
-    if (gameProgress < 6 && this.state.lvl === gameProgress) {
+    if (isWin && gameProgress < 6 && this.state.lvl === gameProgress) {
       gameProgress++;
     }
     // save progress
@@ -81,7 +82,7 @@ class App extends Component {
     else if (direction === 'right' && lvlGroup < 1) {
       lvlGroup++;
     }
-    this.setState({lvlGroup:lvlGroup});
+    this.setState({ lvlGroup: lvlGroup });
   }
 
   replyClickHandler = () => {
@@ -94,17 +95,24 @@ class App extends Component {
     const gameState = this.state.gameState;
     this.setState({ gameState: !gameState });
     this.isGameVisible = false;
+    this.isLvlSelected = false;
   }
 
   lvlButtonClickHanlder = (lvl) => {
+
     if (!this.isGameVisible || lvl !== this.state.lvl) {
+      let lvlGroup = this.state.lvlGroup;
+      if (lvl > 2 && lvlGroup === 0) {
+        lvlGroup++;
+      }
       this.isGameVisible = true;
       this.isLvlSelected = true;
-      this.setState({ lvl: lvl });
+      this.setState({ lvl: lvl, lvlGroup:lvlGroup });
     }
   }
 
   playButtonClickHandler = () => {
+    this.isLvlSelected = false;
     this.isNewGame = true;
     this.setState({ isWin: false })
   }
@@ -120,7 +128,7 @@ class App extends Component {
     }
 
     this.setState({
-      gameAreaSize: {width:width, height:height},
+      gameAreaSize: { width: width, height: height },
       gameAreaStyle: {
         height: height + 'px',
       }
@@ -128,7 +136,7 @@ class App extends Component {
     if (typeof (Storage) !== "undefined") {
       console.log(localStorage.getItem('version') === this.VERSION);
       if (localStorage.getItem('version') === this.VERSION) {
-        const savedProgress = localStorage.getItem('gameProgress');
+        const savedProgress = parseInt(localStorage.getItem('gameProgress'));
         const savedGameScore = JSON.parse(localStorage.getItem('gameScore'));
         if (savedProgress && savedGameScore) {
           this.setState({
@@ -168,7 +176,6 @@ class App extends Component {
       gameInfo = <Popup>
         <StartPopup playClick={this.playButtonClickHandler} cancelClick={this.cancelClickHandler} />
       </Popup>
-      this.isLvlSelected = false;
     }
 
     return (
