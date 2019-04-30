@@ -17,10 +17,16 @@
   .Menu {
     .wrapper {
       width: 100%;
-      justify-content: center;
+      justify-content: space-around;
       // align-items: center;
       // flex-direction: column-reverse;
     }
+
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .Menu {
     .scoreList {
       order: -1;
     }
