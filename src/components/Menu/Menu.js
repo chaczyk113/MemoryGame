@@ -24,7 +24,7 @@ const menu = ({ lvlButtonClick, gameScore, gameProgress, gameLvl, lvlGroup, isGa
         )
     })
     let headerText = <>Your score (clicks)</>
-    if (gameLvl === 3) {
+    if (gameLvl >= 3) {
         headerText = <>Your score (matches)</>
     }
 

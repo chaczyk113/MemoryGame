@@ -174,7 +174,7 @@ class App extends Component {
 
     if (this.isLvlSelected) {
       gameInfo = <Popup>
-        <StartPopup playClick={this.playButtonClickHandler} cancelClick={this.cancelClickHandler} />
+        <StartPopup lvl={this.state.lvl} playClick={this.playButtonClickHandler} cancelClick={this.cancelClickHandler} />
       </Popup>
     }
 
